@@ -1,6 +1,8 @@
 local Eternal = {}
 
 local Players = game:GetService("Players")
+local TweenService = game:GetService("TweenService")
+
 local LocalPlayer = Players.LocalPlayer or Players.PlayerAdded:Wait()
 local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
 
@@ -53,6 +55,17 @@ function Eternal.Get_Closest_Football()
     end
 
     return ClosestFootball
+end
+
+function Eternal.FireTouchInterest(Part, Transmitter, Value)
+    if Transmitter and Part then
+        if (Value == 0) then
+            local tweenInfo = TweenInfo.new(0, Enum.EasingStyle.Linear)
+            local goal = {Position = Transmitter.Position}
+            local tween = TweenService:Create(Part, tweenInfo, goal)
+            tween:Play()
+        end
+    end
 end
 
 return Eternal
