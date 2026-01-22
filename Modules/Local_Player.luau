@@ -68,4 +68,8 @@ function Eternal.FireTouchInterest(Part, Transmitter, Value)
     end
 end
 
+function Eternal.GetPingMS()
+    return math.floor((Players.LocalPlayer:GetNetworkPing() or 0) * 1000)
+end
+
 return Eternal
