@@ -9,6 +9,7 @@ export type Eternal = {
 	Get_Closest_Football: () -> BasePart?,
 	FireTouchInterest: (Part: BasePart?, Transmitter: BasePart?, Value: number) -> (),
 	GetPingMS: () -> number,
+	GetLocalPlayerWithBall: () -> BasePart?,
 }
 
 --// Services
@@ -67,7 +68,6 @@ function Eternal.Get_Closest_Football(): BasePart?
 	return ClosestFootball
 end
 
--- // i have fucking 0 idea why i have this anymore ill just keep it :)
 function Eternal.FireTouchInterest(Part: BasePart?, Transmitter: BasePart?, Value: number)
 	if Part and Transmitter and Value == 0 then
 		local tween = TweenService:Create(Part, TweenInfo.new(0, Enum.EasingStyle.Linear), {Position = Transmitter.Position})
@@ -77,6 +77,16 @@ end
 
 function Eternal.GetPingMS(): number
 	return math.floor((LocalPlayer:GetNetworkPing() or 0) * 1000)
+end
+
+function Eternal.GetLocalPlayerWithBall(): BasePart 
+	local Ball: BasePart = Character:WaitForChild("Football")
+
+	if Ball then
+		return Ball
+	end
+
+	return nil
 end
 
 return Eternal :: Eternal
