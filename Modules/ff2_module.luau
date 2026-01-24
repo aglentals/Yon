@@ -69,11 +69,7 @@ end
 
 function Eternal.FireTouchInterest(Part: BasePart?, Transmitter: BasePart?, Value: number)
 	if Part and Transmitter and Value == 0 then
-		local tween = TweenService:Create(
-			Part,
-			TweenInfo.new(0, Enum.EasingStyle.Linear),
-			{ Position = Transmitter.Position }
-		)
+		local tween = TweenService:Create(Part, TweenInfo.new(0, Enum.EasingStyle.Linear), {Position = Transmitter.Position})
 		tween:Play()
 	end
 end
