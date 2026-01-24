@@ -11,11 +11,11 @@ local Hum: Humanoid = Character and Character:WaitForChild("Humanoid")
 
 function Eternal.Randomized_Hands()
     local CatchParts = {
-        [1] = "Right Arm",
-        [2] = "Left Arm"
+        [1] = "CatchLeft",
+        [2] = "CatchRight"
     }
 
-    return Character:FindFirstChild(CatchParts[math.random(1, #CatchParts)])
+    return Character:WaitForChild(CatchParts[math.random(1, #CatchParts)])
 end
 
 function Eternal.Get_Closest_Player()
