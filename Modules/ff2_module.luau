@@ -67,6 +67,7 @@ function Eternal.Get_Closest_Football(): BasePart?
 	return ClosestFootball
 end
 
+-- // i have fucking 0 idea why i have this anymore ill just keep it :)
 function Eternal.FireTouchInterest(Part: BasePart?, Transmitter: BasePart?, Value: number)
 	if Part and Transmitter and Value == 0 then
 		local tween = TweenService:Create(Part, TweenInfo.new(0, Enum.EasingStyle.Linear), {Position = Transmitter.Position})
