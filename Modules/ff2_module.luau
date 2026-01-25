@@ -23,9 +23,16 @@ local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
 local HRP: BasePart = Character:WaitForChild("HumanoidRootPart")
 local Hum: Humanoid = Character:WaitForChild("Humanoid")
 
+local Practice_Mode = game.PlaceId == 8206123457
+
 --// Functions
 function Eternal.Randomized_Hands(): BasePart?
-	local CatchParts = { "CatchLeft", "CatchRight" }
+	-- // holy fucking shit i finally fixed it ts pmo why did they change the part name
+	local CatchParts = { 
+		Practice_Mode and "CatchLeft" or "CatchL", 
+		Practice_Mode and "CatchRight" or "CatchR",
+	}
+
 	return Character:WaitForChild(CatchParts[math.random(1, #CatchParts)]) :: BasePart?
 end
 
